@@ -26,30 +26,35 @@ class QuickSort
   end
 
   # In-place.
-  def self.sort2!(array, start = 0, length = array.length, &prc)
-    return if length <= 1
-    boundary = self.partition(array, start, length, &prc)
-    self.sort2!(array, start,  boundary - start, &prc)
-    self.sort2!(array, boundary + 1, (length - boundary) - 1, &prc)
+  def self.sort2!(array, start = 0, end_idx = array.length - 1, &prc)
+    # If there is one or less elements to sort return out
+    return if end_idx - start < 1
+    # Partition from start to end
+    boundary = self.partition(array, start, end_idx, &prc)
+    self.sort2!(array, start, boundary - 1, &prc)
+    self.sort2!(array, boundary + 1, end_idx, &prc)
     array
   end
 
-  def self.partition(array, start, length, &prc)
-    prc ||= proc{ |x, y| x <=> y}
+  def self.partition(array, start, end_idx, &prc)
+    #By default sort from smallest to largest
+    prc ||= proc { |x, y| x <=> y}
+
+    #Select random pivot and switch it with the start.
+    pivot_idx = rand(start..end_idx)
+    array[start], array[pivot_idx] = array[pivot_idx], array[start]
     pivot_idx = start
-    boundary = pivot_idx
     pivot = array[pivot_idx]
+    boundary = start + 1
 
-
-    (start...start + length).each do |idx|
-      next if idx == pivot_idx
+    (start + 1..end_idx).each do |idx|
       if prc.call(array[idx], pivot) == -1
+        array[boundary], array[idx] = array[idx], array[boundary]
         boundary += 1
-        array[idx], array[boundary] = array[boundary], array[idx]
       end
     end
-
-    array[pivot_idx], array[boundary] = array[boundary], array[pivot_idx]
-    boundary
+    #Switch with boundary - 1 because we want to switch with a SMALLER ELEMENT(Not a greater)
+    array[pivot_idx], array[boundary - 1] = array[boundary - 1], array[pivot_idx]
+    boundary - 1
   end
 end

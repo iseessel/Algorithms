@@ -18,7 +18,7 @@ class TicTacToeAI #implement alphabeta pruning
         childrens_best = min_max(new_board, !turn)
         best_value, best_move = childrens_best, move if childrens_best > best_value
         board.best_move = best_move
-        return best_value if best_value == 1
+        return if best_value == 1
       else  #minimizing node
         childrens_best = min_max(new_board, !turn)
         best_value, best_move = childrens_best, move if childrens_best < best_value
