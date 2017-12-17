@@ -17,7 +17,6 @@ class Subset
 
     #A subset of set with one element can only sum to a number iff that
       #number is 0(taken care above) or that element equals the target
-
     (1...@matrix[0].length).each do |col|
       if @set[0] == col
         @matrix[0][col] = true
