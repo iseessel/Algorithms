@@ -7,6 +7,12 @@ class Vertex
     @out_edges = []
   end
 
+  def destroy!
+    @in_edges.each { |edge| edge.destroy! }
+    @out_edges.each { |edge| edge.destroy! }
+    @value = nil
+  end
+
 end
 
 class Edge
