@@ -86,6 +86,4 @@ end
       always replace the last element of string one with the last element of string two.
     )
 
-
-
 =end
