@@ -36,37 +36,37 @@ class Subsequence
 
   #
   # #TOP DOWN WITH MEMOIZING
-  # def subsequence(str_one = @str_one, str_two = @str_two)
-  #   #If either strings are zero then the subsequence is 0
-  #   if str_one.length == 0 || str_two.length == 0
-  #     0
-  #
-  #   #If its already been memoized, don't search again for it!
-  #
-  #   elsif @matrix[str_one.length - 1][str_two.length - 1]
-  #     return @matrix[str_one.length - 1][str_two.length - 1]
-  #
-  #     #If the last letters are the same, then the subsequence is
-  #     # equal to 1 + subsequnce minus each of the last letters
-  #
-  #   elsif str_one[-1] == str_two[-1]
-  #     @matrix[str_one.length - 1][str_two.length - 1] =
-  #     1 + subsequence(str_one[0...-1], str_two[0...-1])
-  #
-  #     #If the last letters are NOT the same, then the subsequence is
-  #     #equal to s("ab", "bc") = [s("ab", b), s("a", "bc")] because
-  #     # we are decrementing each by one  and will eventually find all
-  #     # permutations of choosing letters(i.e. eventually if there are commone letters
-  #     #then our previous recursive case will find it.)
-  #
-  #
-  #   else
-  #     @matrix[str_one.length - 1][str_two.length - 1] =
-  #     [subsequence(str_one, str_two[0...-1]),
-  #       subsequence(str_one[0...-1], str_two)
-  #       ].max
-  #   end
-  # end
+  def subsequence(str_one = @str_one, str_two = @str_two)
+    #If either strings are zero then the subsequence is 0
+    if str_one.length == 0 || str_two.length == 0
+      0
+
+    #If its already been memoized, don't search again for it!
+
+    elsif @matrix[str_one.length - 1][str_two.length - 1]
+      return @matrix[str_one.length - 1][str_two.length - 1]
+
+      #If the last letters are the same, then the subsequence is
+      # equal to 1 + subsequnce minus each of the last letters
+
+    elsif str_one[-1] == str_two[-1]
+      @matrix[str_one.length - 1][str_two.length - 1] =
+      1 + subsequence(str_one[0...-1], str_two[0...-1])
+
+      #If the last letters are NOT the same, then the subsequence is
+      #equal to s("ab", "bc") = [s("ab", b), s("a", "bc")] because
+      # we are decrementing each by one  and will eventually find all
+      # permutations of choosing letters(i.e. eventually if there are commone letters
+      #then our previous recursive case will find it.)
+
+
+    else
+      @matrix[str_one.length - 1][str_two.length - 1] =
+      [subsequence(str_one, str_two[0...-1]),
+        subsequence(str_one[0...-1], str_two)
+        ].max
+    end
+  end
 
   def setup_basecase
     (0...@matrix[0].length).each do |col|

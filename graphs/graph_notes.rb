@@ -250,23 +250,30 @@ Time Complexities:
 
 O(|V|+ |E|)
 
+1) Detect Cycles
 
+A) Kahn's algorithm
+  a) Visits nodes with no incoming edges.
+    i. However we can never break through and
+      enter this cycle
+    ii. If we still have edges still in our graph
+      this indicates we have a cycle
+B) Tarjan's algorithm
+  a) We must augment each vertex with a flag
+    a) When flag is already set we have already visited it.
+  b) First gets marked when we are in the process of being visited
+    and then gets unmarked!
 
+Shortest Path Finding:
 
+Breath-First-Search can find the shortest path.
 
+Topo Sort can also find the shortes path: Order of what comes first.
+-> Very similar to dijkstra's algorithm
+  paths_from_toposort(start)
 
-
-
-
-
-
-
-
-
-
-
-
-
+  By using dijksra's algorithm with topo sorting, we don't have to
+    jump around nodes!
 
 
 =end

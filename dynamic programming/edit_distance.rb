@@ -1,9 +1,5 @@
 require 'byebug'
 
-class Distance
-
-  def initialize
-  end
 
   def edit_distance(str_one, str_two)
     set_up_matrix(str_one, str_two)
@@ -44,7 +40,6 @@ class Distance
     end
   end
 
-end
 
 # PURE RECURSIVE SOLUTION:
 
@@ -73,7 +68,8 @@ end
   Recursive Case:
     If the last characters are equal then return that function invoked without the last characters.
 
-    f(str_one, str_two) = f(str_one[0..-1], str_two[0..-1]) if str_one[-1] == str_two[-1]
+    f(str_one, str_two) = f(str_one[0..-1],
+      str_two[0..-1]) if str_one[-1] == str_two[-1]
 
     Otherwise it is the 1 + minimum of insertion, deletion, and replacing
 
@@ -81,9 +77,13 @@ end
 
     1 + MIN(
       f(str_one[0..-1], str_two) -> deletion because we are deleting last from str_one
-      f(str_one, str_two[0..-1]) -> insertion because when we insert we would always insert the last element
+      f(str_one, str_two[0..-1]) -> insertion because when we insert
+        we would always insert the last element of string
+        two, to string one; just only having to match string two
       f(str_one[0..-1], str_two[0..-1]) -> Replacing because when we replace we would
-      always replace the last element of string one with the last element of string two.
+      always replace the last element of string
+      one with the last element of string two, thus there are
+      one less letter to replace on both strings.
     )
 
 =end

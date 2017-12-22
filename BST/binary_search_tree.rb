@@ -124,7 +124,7 @@ class BinarySearchTree
     return is_balanced?(tree_node.left) && is_balanced?(tree_node.right)
   end
 
-  def in_order_traversal(tree_node = @root, arr = [])
+  def in_order_traversal(tree_node = @root)
     return [] if tree_node.nil?
     in_order_traversal(tree_node.left) +
     [tree_node.value] +

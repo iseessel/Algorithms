@@ -136,6 +136,7 @@ class DynamicProgramming
 
     #Recursive Case: Go through each row.
     # If we cannot use the item (i.e. its weight is too big) we get the max weight from above
+      #i.e. not using that weight
     # If we can use the item take max of using the item and not using the item!
     (1...items.length).each do |i|
       (1..max_weight).each do |j|
@@ -229,6 +230,7 @@ class DynamicProgramming
       all_moves = []
       moves.each do |move|
         next unless frog_moves[i - move]
+        # i - move represents what is left if we go |move| steps.
         next_moves = frog_moves[i - move].dup.map do |arr|
           arr.dup.unshift(move)
         end
@@ -247,28 +249,7 @@ class DynamicProgramming
 
 end
 
-#Takes in array of weights, values, and weight capacity
-#Returns the maximum value possible given weight constreight
-
-
-# Given set of item with a weight and value and a weight capacity
-# return the maximum value possible given the weight constraint
-
 =begin
-#Given set of items with a weight and a value:
-  # 1) Determine number of each item to include in a collection
-    # so that the total weight is less than or equal to a given limit
-    # and the total value is large as possible
 
-weight = [1, 2, 3]
-values = [10, 4, 8]
-capacity = 3
-
-
-Basecase: If capacity is 0 return []
-
-Recursive Case:
-
-2d @knapsack_matrix
 
 =end

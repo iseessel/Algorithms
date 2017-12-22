@@ -1,5 +1,5 @@
 def has_cycle?(vertices)
-  not_visited = Set.new vertices
+  not_visited = Set.new(vertices)
   visited = Set.new
   path = {}
 
@@ -41,10 +41,10 @@ def visit(vertex, visited, not_visited, visiting, path)
     return has_cycle if has_cycle
   end
 
-  #delete from the visiting
+  #delete from the visiting, add to the visited.
   visiting.delete(vertex)
-  #add to the visited.
   visited.add(vertex)
+
   return false
 end
 

@@ -1,0 +1,15 @@
+Vesta Team,
+
+I’m a web developer with experience in Ruby on Rails, JavaScript, React-Redux, and SQL. As a life-long learner and a lover of academic research, I am passionate about aiding in STEM research. I believe my technical skills as well as my passion for research makes me a great fit for this position.
+
+My most recent large-scale project is Poll Paradise, a single-page app inspired by Poll Everywhere. Creating full user authentication from scratch, with the help of bcrypt’s hashing and salting library, I let users easily and securely sign up for, log in to, and return to the site. Poll-creation proved to be a complicated task; my polls were optionally grouped, had many answer choices, and had to have either an image or a body. Because users had many options in publishing a poll, my controllers did not always receive a standardized dataset. Because of this, I was able to determine whether or not the question was valid and filter out any invalid answer choices.  Great UX often stems from a flexible but strong backend.
+
+As a single-page web app, I limited the amount of times my frontend hit the server; for example, when creating polls with many answer choices and optional groupings and images, I massaged the data into successfully making one network request. To keep the frontend and backend in synch, my server is required to send back specifically formatted, interrelated JSON. By eagerly loading my querying results, I was able to eliminate any hidden N+1 queries, allowing for a scalable and quick backend.
+
+Poll Paradise uses WebSockets and the pusher API to dynamically set up subscription channels for each ‘active’ question. As people respond to the poll, each answer choice sends to the frontend an updated count of how many people chose that answer choice. This disables the need for the frontend to make continuing costly network requests to the server.
+
+I am excited at the prospect of working for Vesta, helping you move forward in this fast-paced world. Attached is my personal website, with links to my GitHub and various projects. Thank you for your time, and I look forward to hearing from you soon.
+
+Best,
+
+Isaac B. Seessel

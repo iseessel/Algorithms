@@ -21,7 +21,7 @@ Applications:
 
 =end
 
-  def v_topological_sort(vertices)
+  def topological_sort(vertices)
     result = []
     visited = {}
     #Set visited hash to all false
@@ -55,9 +55,7 @@ Applications:
     return true if visited[vertex]
 
     #On the way down mark the currently looked at vertex as visited
-    #and as visiting
     visiting[vertex] = true
-    visited[vertex] = true
 
     #For each connected vertex
     vertex.out_edges.each do |edge|
@@ -71,6 +69,7 @@ Applications:
 
     #On the way back up after we have visited all the chilrden
       #Mark it as non visiting.
+    visited[vertex] = true
     visiting[vertex] = false
     result.unshift(vertex)
   end
