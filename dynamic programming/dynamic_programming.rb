@@ -117,6 +117,7 @@ class DynamicProgramming
 
   def knapsack(items, max_weight)
     @knapsack_matrix = []
+
     #1) Basecase: For max-weight of 0, the max value you can get is 0
     (0...items.length).each do |index|
       @knapsack_matrix.push([0])
@@ -155,7 +156,6 @@ class DynamicProgramming
 
   def trace_matrix(items, cords = [@knapsack_matrix.length - 1, @knapsack_matrix[0].length - 1] )
     #If we've reached 0 max weight then there are no more possible items
-
     #If we've reached no more items
     if cords[0] == 0
       #If the first item is NOT in it, its weight will be 0

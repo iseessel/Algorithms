@@ -53,10 +53,10 @@ class Subsequence
       @matrix[str_one.length - 1][str_two.length - 1] =
       1 + subsequence(str_one[0...-1], str_two[0...-1])
 
-      #If the last letters are NOT the same, then the subsequence is
-      #equal to s("ab", "bc") = [s("ab", b), s("a", "bc")] because
+      #If the last letters are NOT the same, then s("ab", "bc") =
+        # [s("ab", "b"), s("a", "bc")] because
       # we are decrementing each by one  and will eventually find all
-      # permutations of choosing letters(i.e. eventually if there are commone letters
+      # permutations of choosing letters(i.e. eventually if there are common letters
       #then our previous recursive case will find it.)
 
 

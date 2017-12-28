@@ -21,6 +21,7 @@ require 'byebug'
         if str_one[row - 1] == str_two[col - 1]
           @matrix[row][col] = @matrix[row - 1][col - 1]
         else
+          #otherwise it is the max of deletion, insertion, or replacing.
           @matrix[row][col] = 1 + [@matrix[row - 1][col],
             @matrix[row][col - 1],
             @matrix[row - 1][col - 1]
@@ -66,7 +67,8 @@ require 'byebug'
       if str_one.length == 0 || str_two.length == 0
 
   Recursive Case:
-    If the last characters are equal then return that function invoked without the last characters.
+    If the last characters are equal then return that function
+      without the last characters.
 
     f(str_one, str_two) = f(str_one[0..-1],
       str_two[0..-1]) if str_one[-1] == str_two[-1]
